@@ -66,9 +66,12 @@ class Binarizer:
                         reverse_order=reverse_order,
                     )
                 nseq += 1
+                print("nseq : ", nseq, " ", ids)
+
                 ntok += len(ids)
                 consumer(ids)
                 line = f.readline()
+
         return {
             "nseq": nseq,
             "nunk": sum(replaced.values()),
