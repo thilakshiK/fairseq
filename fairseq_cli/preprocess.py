@@ -87,8 +87,7 @@ def main(args):
                 {train_path(lang) for lang in [args.source_lang, args.target_lang]}, src=True
             )
         tgt_dict = src_dict
-        print("src_dict length: ", len(src_dict))
-        print("tgt_dict length: ", len(tgt_dict))
+
     else:
         if args.srcdict:
             src_dict = task.load_dictionary(args.srcdict)
