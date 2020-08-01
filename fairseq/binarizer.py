@@ -35,7 +35,7 @@ class Binarizer:
     ):
         nseq, ntok = 0, 0
         replaced = Counter()
-        print("filename is: ", filename)
+
         def replaced_consumer(word, idx):
             if idx == dict.unk_index and word != dict.unk_word:
                 replaced.update([word])

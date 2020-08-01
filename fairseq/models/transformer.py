@@ -366,9 +366,11 @@ class TransformerEncoder(FairseqEncoder):
 
     def forward_embedding(self, src_tokens):
         print(src_tokens)
+        print("size of src_tokens :", src_tokens.size())
         # embed tokens and positions
         x = embed = self.embed_scale * self.embed_tokens(src_tokens)
         print("x: ", x)
+        print("size of embed size : ", x.size())
         if self.embed_positions is not None:
             x = embed + self.embed_positions(src_tokens)
         if self.layernorm_embedding is not None:
