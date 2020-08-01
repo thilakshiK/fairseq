@@ -66,8 +66,6 @@ class Binarizer:
                         reverse_order=reverse_order,
                     )
                 nseq += 1
-                print("nseq : ", nseq, "  ", line, "  ", ids)
-
                 ntok += len(ids)
                 consumer(ids)
                 line = f.readline()

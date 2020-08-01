@@ -210,7 +210,7 @@ class TransformerModel(FairseqEncoderDecoderModel):
                 args, src_dict, args.encoder_embed_dim, args.encoder_embed_path
             )
 
-            print("blaaaaaaaaaaaa : ", encoder_embed_tokens)
+
             decoder_embed_tokens = encoder_embed_tokens
             args.share_decoder_input_output_embed = True
         else:
@@ -365,8 +365,10 @@ class TransformerEncoder(FairseqEncoder):
         return TransformerEncoderLayer(args)
 
     def forward_embedding(self, src_tokens):
+        print(src_tokens)
         # embed tokens and positions
         x = embed = self.embed_scale * self.embed_tokens(src_tokens)
+        print("x: ", x)
         if self.embed_positions is not None:
             x = embed + self.embed_positions(src_tokens)
         if self.layernorm_embedding is not None:
