@@ -365,12 +365,10 @@ class TransformerEncoder(FairseqEncoder):
         return TransformerEncoderLayer(args)
 
     def forward_embedding(self, src_tokens):
-        print(src_tokens)
-        print("size of src_tokens :", src_tokens.size())
+
         # embed tokens and positions
         x = embed = self.embed_scale * self.embed_tokens(src_tokens)
-        print("x: ", x)
-        print("size of embed size : ", x.size())
+
         if self.embed_positions is not None:
             x = embed + self.embed_positions(src_tokens)
         if self.layernorm_embedding is not None:
@@ -402,6 +400,10 @@ class TransformerEncoder(FairseqEncoder):
                   hidden states of shape `(src_len, batch, embed_dim)`.
                   Only populated if *return_all_hiddens* is True.
         """
+        print("inside forward function")
+        print("src_tokens ", src_tokens.shape)
+        print("src_lengths", src_lengths)
+        print(src_tokens)
         x, encoder_embedding = self.forward_embedding(src_tokens)
 
         # B x T x C -> T x B x C
